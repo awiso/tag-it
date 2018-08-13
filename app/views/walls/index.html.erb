@@ -1,0 +1,7 @@
+<h1>All Walls</h1>
+
+<ul>
+<% @walls.each do |wall| %>
+  <li><%= link_to wall.name, wall_path(wall) %></li>
+<% end %>
+</ul>
