@@ -1,3 +1,13 @@
-<h1><%= @wall.name %></h1>
+<div class="container">
+  <h1><%= @wall.name %></h1>
+  <p>Address: <%= @wall.address %></p>
+  <p>Description: <%= @wall.description %></p>
+  <%= cl_image_tag @wall.photo, height: 300, crop: :fill %>
+  <p>user: <%= @wall.user.email %></p>
 
-<%= link_to 'back to list', walls_path %>
+  <%= link_to 'edit wall', edit_wall_path(@wall), class: 'btn btn-primary' %>
+  <%= link_to 'delete wall', wall_path, method: :delete, class: 'btn btn-danger' %>
+  <br>
+  <br>
+  <%= link_to 'back to list', walls_path, class: 'btn btn-primary' %>
+</div>

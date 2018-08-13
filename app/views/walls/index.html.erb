@@ -1,7 +1,11 @@
-<h1>All Walls</h1>
+<div class="container">
+  <h1>All Walls</h1>
 
-<ul>
-<% @walls.each do |wall| %>
-  <li><%= link_to wall.name, wall_path(wall) %></li>
-<% end %>
-</ul>
+  <ul>
+  <% @walls.each do |wall| %>
+    <li><%= link_to wall.name, wall_path(wall) %></li>
+  <% end %>
+  </ul>
+
+  <%= link_to 'new wall', new_wall_path, class: 'btn btn-primary' %>
+</div>
