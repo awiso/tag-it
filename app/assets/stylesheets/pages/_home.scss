@@ -1,6 +1,5 @@
 // Specific CSS for your home-page
 
-
 .card-left, .card-right {
   display: flex;
   justify-content: space-between;
@@ -12,4 +11,12 @@
 .card-info {
   margin-right: 40px;
   margin-left: 40px;
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.value-prop {
+  font-weight: lighter;
 }

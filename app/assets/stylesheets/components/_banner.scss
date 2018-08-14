@@ -1,5 +1,4 @@
 .banner {
-  height: 100vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -7,7 +6,7 @@
   color: white;
   text-align: center;
   background-position: center;
-  margin-top: -65px;
+  height: 100vh;
 }
 
 .banner-content {
@@ -15,7 +14,6 @@
   bottom: -140px;
   left: -10px;
 }
-
 
 /* Main navbar */
 .navbar-wagon {
