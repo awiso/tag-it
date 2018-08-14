@@ -1,7 +1,7 @@
 puts 'clear db'
+Booking.destroy_all
 Wall.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 puts 'make 2 users'
 User.new(email: 'abc@example.com', password: '123456').save
