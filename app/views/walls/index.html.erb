@@ -1,11 +1,51 @@
-<div class="container">
-  <h1>All Walls</h1>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="headings">
+        <h1>We love street artists</h1>
+        <h3>Explore all walls in your neighbourhood</h3>
+      </div>
+      <div class="new_wall">
+        <%= link_to 'new wall', new_wall_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
 
-  <ul>
-  <% @walls.each do |wall| %>
-    <li><%= link_to wall.name, wall_path(wall) %></li>
-  <% end %>
-  </ul>
+    <div class="content">
+      <div class="cards-container">
+        <div class="row">
 
-  <%= link_to 'new wall', new_wall_path, class: 'btn btn-primary' %>
+          <% @walls.each do |wall| %>
+          <div class="col-xs-12 col-sm-4">
+
+            <%= link_to wall_path(wall) do %>
+            <div class="card">
+
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+              url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')">
+            </div>
+
+            <div class="card-description">
+              <h4 class="card-text"> <%= wall.name %> </h4>
+              <p class="card-text"> <%= wall.address %> </p>
+            </div>
+
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <div id="map" style="position: relative; overflow: hidden;">
+        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"></div>
+      </div>
+    </div>
+
+  </div>
 </div>
+</div>
+
+
+
+
+
+
+
