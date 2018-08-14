@@ -19,18 +19,14 @@
   padding-left: 10px;
 }
 
-h4, .h4 {
+.card-text{
     color: black;
     text-decoration: none;
 }
 
-p, .p{
-  text-decoration: none;
-  color: black;
-}
-h4:hover, .h4:hover, p:hover{
-  text-decoration: none;
-  color: black;
+.card-text:hover{
+    color: black;
+    text-decoration: none;
 }
 
 .card:hover{
