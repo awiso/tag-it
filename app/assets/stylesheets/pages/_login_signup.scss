@@ -1,0 +1,14 @@
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.01) 0%, rgba(0,36,61,0.6) 50%), asset-url('candice-seplow-153995-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-card {
+  //  margin-top: 220px;
+  margin-top: 20%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
