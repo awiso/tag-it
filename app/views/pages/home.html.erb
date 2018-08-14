@@ -1,5 +1,104 @@
+<div class="banner" style="background-image: linear-gradient(-190deg, rgba(76,51,35,-0.5) 0%, rgba(0,0,10, 0.5) 80%), url('<%= image_path 'banner.png' %>');">
+
+  <div class="navbar-wagon navbar-banner">
+    <!-- Logo -->
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "https://fontmeme.com/permalink/180814/d4f1d45a6ec6702d18554cb9eeb9f2bb.png", height: 50 %>
+    <% end %>
+
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+      <% if user_signed_in? %>
+
+      <!-- Links when logged in -->
+      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link-h" %>
+      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link-h" %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link-h" %>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+
+        <div class="dropdown">
+          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+              <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link-h-h" %>
+      <% end %>
+    </div>
+
+    <!-- Dropdown list appearing on mobile only -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Some mobile link</a></li>
+          <li><a href="#">Other one</a></li>
+          <li><a href="#">Other one</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner-content">
+    <h1>TAGIT</h1>
+    <p><i>Brush your world with colors or just tag it.</i></p>
+    <%= link_to 'Explore', walls_path, class: 'btn btn-success' %>
+  </div>
+
+</div>
+
+
+<!-- card for tagit value proposition -->
+
 <div class="container">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-  <%= link_to 'list of walls', walls_path, class: 'btn btn-primary' %>
+
+  <div class="card-left">
+    <div class="card-img">
+      <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+    </div>
+    <div class="card-info">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, distinctio cum, officiis tempora ipsa sit quos doloribus, neque porro soluta qui, hic saepe? Doloremque accusamus temporibus libero, delectus provident illo.</p>
+    </div>
+  </div>
+
+  <div class="card-right">
+    <div class="card-info">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit commodi dolores voluptates, cumque minus suscipit unde facilis error dolor veritatis fugit ex magnam, impedit natus iure quos accusantium architecto qui.</p>
+    </div>
+    <div class="card-img">
+      <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+    </div>
+  </div>
+
+  <div class="card-left">
+    <div class="card-img">
+      <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+    </div>
+    <div class="card-info">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et odit corporis repellendus odio laboriosam suscipit alias, dolor, eum ab ducimus excepturi accusamus itaque assumenda minima unde sint laudantium veritatis sapiente.</p>
+    </div>
+  </div>
+
 </div>
