@@ -10,6 +10,8 @@ class BookingsController < ApplicationController
     else
       render 'walls/show'
     end
+    authorize @booking
+    authorize @wall
   end
 
   private

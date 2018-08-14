@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+
+
+.card-left, .card-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 30px;
+}
+
+.card-info {
+  margin-right: 40px;
+  margin-left: 40px;
+}
