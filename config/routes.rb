@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   end
 
 
-  get 'owner_bookings', to: 'owner_bookings#owner_bookings', as: 'owner_bookings'
-  get 'my_bookings', to: 'artist_bookings#artist_bookings', as: 'artist_bookings'
+  get 'owner_bookings', to: 'owner_bookings#index', as: 'owner_bookings'
+  get 'my_bookings', to: 'artist_bookings#index', as: 'artist_bookings'
 
   resources :walls do
     #
