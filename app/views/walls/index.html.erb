@@ -20,9 +20,7 @@
             <%= link_to wall_path(wall) do %>
             <div class="card">
 
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-              url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')">
-            </div>
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')"></div>
 
             <div class="card-description">
               <h4 class="card-text"> <%= wall.name %> </h4>

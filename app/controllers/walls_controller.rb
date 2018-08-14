@@ -6,6 +6,8 @@ class WallsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @booking.wall = @wall
   end
 
   def new

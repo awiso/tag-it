@@ -12,7 +12,12 @@
 
     <div class="show-right">
       <div class="book-box">
-        <%= link_to 'Book Wall', root_path, class: 'btn btn-success' %>
+
+        <%= simple_form_for [@wall, @booking] do |f|%>
+        <%= f.input :date %>
+        <%= f.submit class: 'btn btn-success' %>
+        <% end %>
+
       </div>
     </div>
   </div>

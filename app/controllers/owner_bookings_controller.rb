@@ -1,0 +1,2 @@
+class OwnerBookingsController < ApplicationController
+end

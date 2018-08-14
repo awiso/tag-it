@@ -1,0 +1,2 @@
+class ArtistBookingsController < ApplicationController
+end
