@@ -1,0 +1,9 @@
+<h2>Your artist bookings</h2>
+<ul>
+<% @bookings.each do |b| %>
+  <%=   cl_image_tag b.wall.photo, height: 300, crop: :fill, class: 'image' %>
+  <%= b.wall.address %>
+  <%= b.wall.description %>
+  <%= b.date %>
+<% end %>
+</ul>
