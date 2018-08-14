@@ -1,27 +1,51 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <h1>We love street artists</h1>
-      <h3></h3>
-
-      <% @walls.each do |wall| %>
-      <div class="col-xs-12 col-sm-4">
-        <% (wall.photo.blank?) ? (url = image_path("luis.jpg")) : (url = cl_image_path(wall.photo, height: 300, width: 400, crop: :fill)) %>
-        <div class="card" >
-          <div class="photo "style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= url %>')">
-          </div>
-
-          <div class="card-description">
-            <h2><%= link_to wall.name, wall_path(wall), class: "card_header" %></h2>
-          </div>
-        </div>
+      <div class="headings">
+        <h1>We love street artists</h1>
+        <h3>Explore all walls in your neighbourhood</h3>
+      </div>
+      <div class="new_wall">
+        <%= link_to 'new wall', new_wall_path, class: 'btn btn-primary' %>
+      </div>
     </div>
-    <% end %>
-    <%= link_to 'new wall', new_wall_path, class: 'btn btn-primary' %>
+
+    <div class="content">
+        <div class="cards-container">
+      <div class="row">
+
+          <% @walls.each do |wall| %>
+          <div class="col-xs-12 col-sm-4">
+
+            <%= link_to wall_path(wall) do %>
+            <div class="card">
+
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+              url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')">
+            </div>
+
+            <div class="card-description">
+              <h4> <%= wall.name %> </h4>
+              <p> <%= wall.address %> </p>
+            </div>
+
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <div id="map" style="position: relative; overflow: hidden;">
+        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 </div>
+
+
+
+
 
 
 
