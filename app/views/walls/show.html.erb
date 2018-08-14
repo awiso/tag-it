@@ -20,6 +20,10 @@
   <%= link_to 'back to list', walls_path, class: 'btn btn-primary' %>
   <br>
   <br>
-  <%= link_to 'edit wall', edit_wall_path(@wall), class: 'btn btn-primary' %>
-  <%= link_to 'delete wall', wall_path, method: :delete, class: 'btn btn-danger' %>
+  <% if policy(@wall).edit? %>
+    <%= link_to 'edit wall', edit_wall_path(@wall), class: 'btn btn-primary' %>
+  <% end %>
+  <% if policy(@wall).destroy? %>
+    <%= link_to 'delete wall', wall_path, method: :delete, class: 'btn btn-danger' %>
+  <% end %>
 </div>
