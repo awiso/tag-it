@@ -4,36 +4,38 @@
     height: 600px;"
     data-markers="<%= @markers.to_json %>"
   ></div>
-<div class="container">
-  <h1 class='name-header'><%= @wall.name %></h1>
+<div class="wrapper show-wrapper">
+  <div class="container">
+    <h1 class='name-header'><%= @wall.name %></h1>
 
-  <div class="show-columns">
-    <div class="show-left">
-      <p class='address' ><%= @wall.address %></p>
-      <p class='description' ><%= @wall.description %></p>
-      <p class='owner' ><strong>Posted by: </strong><%= @wall.user.email %></p>
-      <%= cl_image_tag @wall.photo, height: 300, crop: :fill, class: 'image' %>
-    </div>
+    <div class="show-columns">
+      <div class="show-left">
+        <p class='address' ><%= @wall.address %></p>
+        <p class='description' ><%= @wall.description %></p>
+        <p class='owner' ><strong>Posted by: </strong><%= @wall.user.email %></p>
+        <%= cl_image_tag @wall.photo, height: 300, crop: :fill, class: 'image' %>
+      </div>
 
-    <div class="show-right">
-      <div class="book-box">
+      <div class="show-right">
+        <div class="book-box">
 
-        <%= simple_form_for [@wall, @booking] do |f|%>
-        <%= f.input :date %>
-        <%= f.submit class: 'btn btn-success' %>
-        <% end %>
+          <%= simple_form_for [@wall, @booking] do |f|%>
+          <%= f.input :date %>
+          <%= f.submit class: 'btn btn-success' %>
+          <% end %>
 
+        </div>
       </div>
     </div>
+    <br>
+    <%= link_to 'back to list', walls_path, class: 'btn btn-warning' %>
+    <br>
+    <br>
+    <% if policy(@wall).edit? %>
+      <%= link_to 'edit wall', edit_wall_path(@wall), class: 'btn btn-primary' %>
+    <% end %>
+    <% if policy(@wall).destroy? %>
+      <%= link_to 'delete wall', wall_path, method: :delete, class: 'btn btn-danger' %>
+    <% end %>
   </div>
-  <br>
-  <%= link_to 'back to list', walls_path, class: 'btn btn-warning' %>
-  <br>
-  <br>
-  <% if policy(@wall).edit? %>
-    <%= link_to 'edit wall', edit_wall_path(@wall), class: 'btn btn-primary' %>
-  <% end %>
-  <% if policy(@wall).destroy? %>
-    <%= link_to 'delete wall', wall_path, method: :delete, class: 'btn btn-danger' %>
-  <% end %>
 </div>
