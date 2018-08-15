@@ -12,8 +12,13 @@
     }
   }
 
-  .onwer_bookings_wall{
+  .owner_bookings_wall{
     width: 200px;
+    .wall_photo{
+      &:hover{
+        opacity: 0.8;
+      }
+    }
   }
   .owner-bookings-headers{
 

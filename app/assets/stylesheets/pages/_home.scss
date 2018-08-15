@@ -1,6 +1,7 @@
 // Specific CSS for your home-page
 h2{
   font-size: 20px;
+
 }
 .card-left, .card-right {
   display: flex;
@@ -13,6 +14,15 @@ h2{
 .card-info {
   margin-right: 40px;
   margin-left: 40px;
+  position: relative;
+  left: 40px;
+}
+
+.card-info-left {
+  margin-right: 40px;
+  margin-left: 40px;
+  position: relative;
+  right: 40px;
 }
 
 .logo-img {

@@ -10,9 +10,11 @@
       <% @walls.each do |wall| %>
       <li>
         <div class="owner-bookings-wall">
+          <%= link_to wall_path(wall) do %>
           <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
-          <p> <%= wall.name %></p>
-          <p> <%= wall.address %></p>
+          <% end %>
+          <p class="owner-wall-name"> <%= wall.name %></p>
+          <p class="owner-wall-address"> <%= wall.address %></p>
         </div>
         <div class="owner-bookings-bookings">
           <ul>
