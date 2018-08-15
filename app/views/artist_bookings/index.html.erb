@@ -1,9 +1,21 @@
-<h2>Your artist bookings</h2>
-<ul>
-<% @bookings.each do |b| %>
-  <%=   cl_image_tag b.wall.photo, height: 300, crop: :fill, class: 'image' %>
-  <%= b.wall.address %>
-  <%= b.wall.description %>
-  <%= b.date %>
-<% end %>
-</ul>
+<div class="container booking-list">
+  <h3>My Canvas Opportunities</h3>
+  <ul>
+    <li>
+      <% @bookings.each do |b| %>
+        <div class="artist-bookings-card">
+          <div class="wall_photo" style="background-image: url('<%= cl_image_path b.wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
+          <div class="booking_wall_description">
+            <p><%= b.wall.address %></p>
+            <p><%= b.wall.description %></p>
+            <p><%= b.date %></p>
+          </div>
+          <div class="artist_bookings-view-wall btn btn-primary">
+            <%= link_to 'View Wall', wall_path(b.wall)  %>
+          </div>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+
+</div>

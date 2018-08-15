@@ -1,0 +1,39 @@
+
+.booking-list{
+  a{ color: white}
+  .artist-bookings-card{
+    display: flex;
+    align-items: center;
+    .booking_wall_description{
+      flex-grow: 1;
+      margin-left: 20px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      p{
+        display: block;
+        margin: 0;
+      }
+    }
+    .artist_bookings-view-wall{
+      margin-right: 20px;
+    }
+  }
+
+
+  ul{
+    list-style: none;
+    li{
+      border-radius: 8px;
+      list-style: none;
+      background: #DCEEFA;
+      padding: 10px;
+      &:hover{
+        background: #C2E8FF;
+      }
+    }
+
+
+  }
+}
