@@ -1,18 +1,16 @@
-.map {
-  height: 60vh;
-  background-image: asset-url('map.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+#map {
+  z-index: 1;
 }
 
 .name-header {
   background-color: white;
   padding: 20px;
   width: 50%;
-  margin-top: -90px;
+  margin-top: 1px;
   margin-bottom: 0;
   border-top-right-radius: 5px;
-  box-shadow: 1px -1px 1px rgba(0,0,0,0.1)
+  box-shadow: 1px -1px 1px rgba(0,0,0,0.1);
+  z-index: 2 !important;
 }
 
 .show-columns {
