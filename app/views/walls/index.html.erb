@@ -5,14 +5,11 @@
     height: 600px;"
     data-markers="<%= @markers.to_json %>"
   ></div>
-  <div class="container">
+  <div class="container index-container">
     <div class="row">
       <div class="headings">
         <h1>Welcome, Urban Artists!</h1>
         <h3>Explore tagging opportunities in your neighbourhood</h3>
-      </div>
-      <div class="new_wall">
-        <%= link_to 'new wall', new_wall_path, class: 'btn btn-primary' %>
       </div>
     </div>
 
@@ -43,6 +40,9 @@
       </div>
     </div>
 
+    <div class="new_wall">
+      <%= link_to 'Post a New Wall', new_wall_path, class: 'btn btn-primary' %>
+    </div>
   </div>
 </div>
 
