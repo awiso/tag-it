@@ -1,12 +1,18 @@
 <h2>Bookings for your Wall</h2>
+<%= @walls.name %>
 <% @walls.each do |wall| %>
-<%= cl_image_tag wall.photo, height: 300, crop: :fill, class: 'image' %>
-<%= wall.name %>
-<ul>
-  <% wall.bookings.each do |booking| %>
-  <li> <%= booking[:date] %> </li>
-  <% end %>
-</ul>
+  <ul>
+    <% wall.bookings.each do |booking| %>
+      <% if booking[:status] == "confirmed" %>
+        <li> <%= booking[:date] %> </li>
+      <% end %>
+    <% end %>
+  </ul>
 <% end %>
+
+
+
+
+
 
 

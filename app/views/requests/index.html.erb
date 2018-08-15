@@ -1,0 +1,16 @@
+<h2>Requests for your Wall</h2>
+<% @walls.each do |wall| %>
+<%= cl_image_tag wall.photo, height: 300, crop: :fill, class: 'image' %>
+<%= wall.name %>
+<ul>
+  <% wall.bookings.each do |booking| %>
+  <li>
+    <% if booking[:status] == "pending" %>
+      <%= booking[:date] %>
+      <%= link_to "CONFIRM", owner_bookings_path %>
+      <%= link_to "DECLINE", requests_path %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
