@@ -1,14 +1,4 @@
-<h2>Bookings for your Wall</h2>
-<%= @walls.name %>
-<% @walls.each do |wall| %>
-  <ul>
-    <% wall.bookings.each do |booking| %>
-      <% if booking[:status] == "confirmed" %>
-        <li> <%= booking[:date] %> </li>
-      <% end %>
-    <% end %>
-  </ul>
-<% end %>
+
 
 
 

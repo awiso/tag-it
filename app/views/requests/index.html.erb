@@ -9,6 +9,10 @@
       <%= booking[:date] %>
       <%= link_to "CONFIRM", owner_bookings_path %>
       <%= link_to "DECLINE", requests_path %>
+      <% elsif  booking[:status] == "accepted" %>
+      <p class="accepted">Accepted</p>
+      <% elsif  booking[:status] == "declined" %>
+      <p class="declined">Declined</p>
     <% end %>
   </li>
   <% end %>
