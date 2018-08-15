@@ -1,44 +1,48 @@
-<div class="banner" style="background-image: linear-gradient(-190deg, rgba(76,51,35,-0.5) 0%, rgba(0,0,10, 0.5) 80%), url('<%= image_path 'banner.png' %>');">
+  <div class="banner" style="background-image: linear-gradient(-190deg, rgba(76,51,35,-0.5) 0%, rgba(0,0,10, 0.5) 80%), url('<%= image_path 'banner.png' %>');">
 
-  <div class="banner-content">
-    <h1>TAGIT</h1>
-    <p><i>Brush your world with colors or just tag it.</i></p>
-    <%= link_to 'Explore', walls_path, class: 'btn btn-success' %>
+    <div class="banner-content">
+      <%= image_tag 'tag-it-white.png', class: 'logo-img' %>
+      <h2><i>Brush your world with colors or just tag it.</i></h2><br>
+      <%= link_to 'Explore', walls_path, class: 'btn btn-success' %>
+    </div>
+
   </div>
-
-</div>
 
 <!-- card for tagit value proposition -->
 
 <div class="container">
-
-  <div class="card-left">
-    <div class="card-img">
-      <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
-    </div>
-    <div class="card-info">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, distinctio cum, officiis tempora ipsa sit quos doloribus, neque porro soluta qui, hic saepe? Doloremque accusamus temporibus libero, delectus provident illo.</p>
-    </div>
-  </div>
-
-  <div class="card-right">
-    <div class="card-info">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit commodi dolores voluptates, cumque minus suscipit unde facilis error dolor veritatis fugit ex magnam, impedit natus iure quos accusantium architecto qui.</p>
-    </div>
-    <div class="card-img">
-      <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+  <div class="row">
+    <div class="card-left">
+      <div class="card-img">
+        <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+      </div>
+      <div class="card-info">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, distinctio cum, officiis tempora ipsa sit quos doloribus, neque porro soluta qui, hic saepe? Doloremque accusamus temporibus libero, delectus provident illo.</p>
+      </div>
     </div>
   </div>
+  <div class="row">
+    <div class="card-right">
+      <div class="card-info">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit commodi dolores voluptates, cumque minus suscipit unde facilis error dolor veritatis fugit ex magnam, impedit natus iure quos accusantium architecto qui.</p>
+      </div>
+      <div class="card-img">
+        <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+      </div>
+    </div>
 
-  <div class="card-left">
-    <div class="card-img">
-      <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
-    </div>
-    <div class="card-info">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et odit corporis repellendus odio laboriosam suscipit alias, dolor, eum ab ducimus excepturi accusamus itaque assumenda minima unde sint laudantium veritatis sapiente.</p>
-    </div>
   </div>
 
+  <div class="row">
+    <div class="card-left">
+      <div class="card-img">
+        <%= image_tag "https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/fotolia/large/119005042sports-collage-a-large-brick-wall-graffiti.jpg", height: 300 %>
+      </div>
+      <div class="card-info">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et odit corporis repellendus odio laboriosam suscipit alias, dolor, eum ab ducimus excepturi accusamus itaque assumenda minima unde sint laudantium veritatis sapiente.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -46,5 +50,4 @@
     const nav = document.querySelector('.navbar-wagon');
     nav.classList.add('transparent');
   };
-
 </script>
