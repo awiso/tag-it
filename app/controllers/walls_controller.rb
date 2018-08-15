@@ -24,6 +24,7 @@ class WallsController < ApplicationController
 
   def show
     @booking = Booking.new
+
     @booking.wall = @wall
     @walls = [@wall]
     @markers = @walls.map do |wall|
