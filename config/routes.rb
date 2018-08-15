@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'owner_bookings', to: 'owner_bookings#index', as: 'owner_bookings'
+  get 'my_walls', to: 'owner_bookings#index', as: 'owner_bookings'
   get 'my_bookings', to: 'artist_bookings#index', as: 'artist_bookings'
 
   resources :walls do
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   resources :bookings, only: :destroy
 
   ## when logged in, get all my walls as owner
-  get 'my_walls', to: 'my_walls#walls', as: 'my_walls'
+  # get 'my_walls', to: 'my_walls#walls', as: 'my_walls'
 end

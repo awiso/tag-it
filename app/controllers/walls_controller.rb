@@ -9,7 +9,6 @@ class WallsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @booking.wall = @wall
     authorize @wall
   end
 
