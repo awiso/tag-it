@@ -1,18 +1,32 @@
-<h2>Bookings for your Wall</h2>
-<%= @walls.name %>
-<% @walls.each do |wall| %>
-  <ul>
-    <% wall.bookings.each do |booking| %>
-      <% if booking[:status] == "confirmed" %>
-        <li> <%= booking[:date] %> </li>
-      <% end %>
-    <% end %>
-  </ul>
-<% end %>
 
+<div class="container owner-bookings">
+  <h2>My Owned Walls</h2>
+  <div class="wrapper-bookings">
+    <div class="owner-bookings-headers">
+      <p>My Walls</p>
+      <p>Artist Bookings</p>
+    </div>
 
+    <ul>
+      <% @walls.each do |wall| %>
+      <li>
+        <div class="owner-bookings-wall">
+          <%= link_to wall_path(wall) do %>
+          <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
+          <% end %>
+          <p class="owner-wall-name"> <%= wall.name %></p>
+        </div>
+        <div class="owner-bookings-bookings">
+          <ul>
+            <% wall.bookings.each do |booking| %>
+            <li> <%= booking.date %> </li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+      </li>
+    </ul>
 
-
-
-
+  </div>
+</div>
 

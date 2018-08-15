@@ -1,0 +1,74 @@
+.owner-bookings{
+  .wrapper-bookings{
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    min-height: 80vh;
+  }
+
+  ul{
+    li{
+      display: flex;
+      padding: 10px;
+      &:hover{
+        background-color: #ECFEFF;
+      }
+    }
+  }
+
+  .owner-bookings-wall{
+    width: 200px;
+    overflow-x: auto;
+    .wall_photo{
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+    .owner-wall-name{
+      font-size: 14px;
+
+    }
+  }
+  .owner-bookings-headers{
+
+    display: flex;
+    p{
+      display: inline-block;
+      text-decoration: underline;
+    }
+
+    p:first-child{
+      width: 200px;
+      margin-left: 25px;
+    }
+
+    p:last-child{
+      margin-left: 35px;
+    }
+  }
+
+  .owner-bookings-bookings{
+    flex-grow: 1;
+    margin-left: 20px;
+    ul{
+      display: flex;
+      list-style: none;
+      p{
+        margin: 0;
+      }
+      li{
+        border-radius: 8px;
+        list-style: none;
+        display: inline-block;
+        background: #DCEEFA;
+        padding: 10px;
+        margin-left: 10px;
+        &:hover{
+          background: #C2E8FF;
+        }
+      }
+    }
+  }
+
+
+}

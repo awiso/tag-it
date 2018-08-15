@@ -2,13 +2,37 @@ class WallsController < ApplicationController
   before_action :set_wall, only: [ :show, :edit, :update, :destroy ]
   before_action :authorize_wall, only: [ :show, :edit, :update, :destroy ]
   before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
+  
+  # index before geocoding:
+  # def index
+  #   @walls = Wall.all
+  #   policy_scope(Wall)
+  # end
+
   def index
-    @walls = Wall.all
+    @walls = Wall.where.not(latitude: nil, longitude: nil)
+    @markers = @walls.map do |wall|
+      {
+        lat: wall.latitude,
+        lng: wall.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/walls/map_box", locals: { wall: wall }) }
+      }
+    end
     policy_scope(Wall)
   end
 
+
   def show
     @booking = Booking.new
+
+    @booking.wall = @wall
+    @walls = [@wall]
+    @markers = @walls.map do |wall|
+      {
+      lat: wall.latitude,
+      lng: wall.longitude
+      }
+    end
     authorize @wall
   end
 
