@@ -12,8 +12,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My Blank Canvases", owner_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Canvas Opportunities", artist_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Blank Canvases", artist_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Owned Walls", owner_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->

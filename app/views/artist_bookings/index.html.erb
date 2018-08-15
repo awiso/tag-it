@@ -1,8 +1,8 @@
 <div class="container booking-list">
-  <h3>My Canvas Opportunities</h3>
+  <h2>My Blank Canvases</h2>
   <ul>
-    <li>
       <% @bookings.each do |b| %>
+      <li>
         <div class="artist-bookings-card">
           <div class="wall_photo" style="background-image: url('<%= cl_image_path b.wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
           <div class="booking_wall_description">
@@ -14,8 +14,8 @@
             <%= link_to 'View Wall', wall_path(b.wall)  %>
           </div>
         </div>
+      </li>
       <% end %>
-    </li>
   </ul>
 
 </div>
