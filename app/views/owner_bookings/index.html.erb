@@ -1,12 +1,29 @@
-<h2>Bookings for your Wall</h2>
-<% @walls.each do |wall| %>
-<%= cl_image_tag wall.photo, height: 300, crop: :fill, class: 'image' %>
-<%= wall.name %>
-<ul>
-  <% wall.bookings.each do |booking| %>
-  <li> <%= booking[:date] %> </li>
-  <% end %>
-</ul>
-<% end %>
+<div class="container owner-bookings">
+  <h2>My Owned Walls</h2>
+  <div class="wrapper-bookings">
+    <div class="owner-bookings-headers">
+      <p>My Walls</p>
+      <p>Artist Bookings</p>
+    </div>
 
+    <ul>
+      <% @walls.each do |wall| %>
+      <li>
+        <div class="owner-bookings-wall">
+          <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
+          <p> <%= wall.name %></p>
+          <p> <%= wall.address %></p>
+        </div>
+        <div class="owner-bookings-bookings">
+          <ul>
+            <% wall.bookings.each do |booking| %>
+            <li> <%= booking.date %> </li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+      </li>
+    </ul>
 
+  </div>
+</div>
