@@ -1,6 +1,6 @@
 <div id="tag-logo" class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to walls_path, class: "navbar-wagon-brand" do %>
 
     <%= image_tag 'tag-it.png', height: 50 %>
 
@@ -12,9 +12,15 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My Blank Canvases", artist_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Owned Walls", owner_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="<%= active_class(artist_bookings_path) %>">
+        <%= link_to "My Blank Canvases", artist_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div class="<%= active_class(owner_bookings_path) %>">
+        <%= link_to "My Owned Walls", owner_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div>
+        <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
