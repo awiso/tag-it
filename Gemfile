@@ -10,6 +10,7 @@ gem 'redis'
 gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'geocoder'
 
 gem "pundit"
 
