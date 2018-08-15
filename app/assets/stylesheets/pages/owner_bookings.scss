@@ -9,15 +9,24 @@
   ul{
     li{
       display: flex;
+      padding: 10px;
+      &:hover{
+        background-color: #ECFEFF;
+      }
     }
   }
 
-  .owner_bookings_wall{
+  .owner-bookings-wall{
     width: 200px;
+    overflow-x: auto;
     .wall_photo{
       &:hover{
         opacity: 0.8;
       }
+    }
+    .owner-wall-name{
+      font-size: 14px;
+
     }
   }
   .owner-bookings-headers{
