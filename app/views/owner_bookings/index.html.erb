@@ -1,12 +1,12 @@
 <h2>Bookings for your Wall</h2>
-
+<% @walls.each do |wall| %>
+<%= cl_image_tag wall.photo, height: 300, crop: :fill, class: 'image' %>
+<%= wall.name %>
 <ul>
-  <% @bookings.each do |b_arr| %>
-    <% b_arr.each do |b| %>
-    <% wall = b.wall %>
-    <div class="owner_booking"></div>
-    <%= cl_image_tag wall.photo, height: 300, crop: :fill, class: 'image' %>
-    <%= b.date %>
-    <% end %>
+  <% wall.bookings.each do |booking| %>
+  <li> <%= booking[:date] %> </li>
   <% end %>
 </ul>
+<% end %>
+
+
