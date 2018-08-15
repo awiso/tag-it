@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
   def user_not_authorized(exception)
 
     flash[:alert] = "You are not authorized to perform this action."
-    redirect_to(wall_path(@wall) || root_path)
+    if @wall
+      redirect_to wall_path(@wall)
+    else
+      redirect_to root_path
+    end
   end
 
   private
