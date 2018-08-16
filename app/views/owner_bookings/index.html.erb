@@ -1,4 +1,6 @@
 <div class="booking-flex">
+  <% if @bookings.present? %>
+
   <div class="container booking-list" style="width: <%if @walls.present?%> 50%; <% end %>" >
     <h2>My Blank Canvases</h2>
     <ul class="bookings-list-scroll">
@@ -27,7 +29,9 @@
       <% end %>
     </ul>
   </div>
+  <% end %>
 
+  <% if @walls.present? %>
   <div class="container owner-bookings" style="width: <%if @bookings.present?%> 50%; border-left: 1px solid black;<% end %>" >
 
     <h2>My Owned Walls</h2>
@@ -85,6 +89,7 @@
 
     </div>
   </div>
+  <% end %>
 
 
 </div>
