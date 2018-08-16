@@ -53,7 +53,7 @@
                 <% if booking[:status] == "pending" %>
                 <p><strong>Booking</strong> for <%= booking.date %></p>
                 <p>from <%= booking.user.email %></p>
-                <p></p>
+                <p><em><%= booking.message %></em></p>
                 <div class="confirmation-buttons">
                   <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
                   <%= f.hidden_field :status, :value => "accepted" %>
