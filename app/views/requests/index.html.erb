@@ -7,8 +7,19 @@
   <li>
     <% if booking[:status] == "pending" %>
       <%= booking[:date] %>
-      <%= link_to "CONFIRM", owner_bookings_path %>
-      <%= link_to "DECLINE", requests_path %>
+
+      <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
+      <%= f.hidden_field :status, :value => "accepted" %>
+      <%= f.hidden_field :id, :value => booking.id %>
+      <%= f.submit "Accept" %>
+      <% end %>
+
+      <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"decline-booking-button"}) do |f| %>
+      <%= f.hidden_field :status, :value => "declined" %>
+      <%= f.hidden_field :id, :value => booking.id %>
+      <%= f.submit "Decline" %>
+      <% end %>
+
       <% elsif  booking[:status] == "accepted" %>
       <p class="accepted">Accepted</p>
       <% elsif  booking[:status] == "declined" %>

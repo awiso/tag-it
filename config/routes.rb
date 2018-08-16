@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # requests shows you all pending requests
   get 'requests', to: 'requests#index', as: 'requests'
 
+  #confirmations confirms and declines requests
+  patch 'confirmations', to: 'confirmations#update', as: 'update_booking'
+
   # my_walls not needed any more
   # get 'my_walls', to: 'owner_bookings#index', as: 'owner_bookings'
   get 'my_bookings', to: 'artist_bookings#index', as: 'artist_bookings'
