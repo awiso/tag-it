@@ -36,3 +36,25 @@ h2{
 .index-container {
   padding-bottom: 100px;
 }
+
+.profile-projects {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.booked {
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 10px;
+}
+
+.completed {
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 10px;
+}

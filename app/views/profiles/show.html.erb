@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Hey there, <%= @user.display_name %>! 🖌</h1>
+  <%= cl_image_tag @user.avatar, width: 400 %>
+
+  <div class="profile-projects">
+    <div class="booked">
+      <h3>Booked projects:</h3>
+      <p>You haven't booked any projects yet.</p>
+      <p>Click below to find your next project!</p>
+      <p><%= link_to 'Explore', walls_path, class: 'btn btn-success' %></p>
+    </div>
+
+    <div class="completed">
+      <h3>Completed projects:</h3>
+      <p>You haven't posted a completed piece yet.</p>
+    </div>
+  </div>
+  <br>
+  <%= link_to 'Edit Profile', edit_user_registration_path(@user), class: 'btn btn-primary' %>
+</div>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: :destroy
 
+  resources :profiles, only: [ :show, :edit, :update ]
+
   ## when logged in, get all my walls as owner
   # get 'my_walls', to: 'my_walls#walls', as: 'my_walls'
 end
