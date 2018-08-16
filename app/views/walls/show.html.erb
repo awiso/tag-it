@@ -21,6 +21,7 @@
 
           <%= simple_form_for [@wall, @booking] do |f|%>
           <%= f.input :date, as: :string, input_html: { class: "datepickr"} %>
+          <%= f.input :initial_message, label:'Message', as: :text %>
           <%= f.submit class: 'btn btn-success' %>
           <% end %>
 
