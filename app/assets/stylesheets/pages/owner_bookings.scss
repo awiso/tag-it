@@ -1,3 +1,11 @@
+.bookings-list-scroll{
+  height: calc(100vh - 140px);
+  overflow-y: scroll;
+  li{
+    list-style: none;
+  }
+}
+
 .owner-bookings{
   width: 100%;
   .wrapper-bookings{
@@ -6,10 +14,6 @@
     min-height: 80vh;
   }
 
-  .bookings-list-scroll{
-    height: calc(100vh - 140px);
-    overflow-y: scroll;
-  }
   ul{
     li{
       margin-top: 20px;
@@ -21,7 +25,7 @@
 
   .owner-bookings-wall{
     width: 200px;
-    overflow-x: auto;
+    margin-left: -60px;
     .wall_photo{
       &:hover{
         opacity: 0.8;
@@ -29,7 +33,9 @@
     }
     .owner-wall-name{
       font-size: 14px;
-
+    }
+    p{
+      margin-top: 10px;
     }
   }
   .owner-bookings-headers{
@@ -67,30 +73,28 @@
         border-radius: 8px;
         list-style: none;
         display: inline-block;
-        background: #DCEEFA;
         padding: 10px;
         margin-left: 10px;
-        &:hover{
-          background: #C2E8FF;
-        }
+
       }
     }
     .confirmation-buttons{
       margin-top: 5px;
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       .button{
         border: 1px solid transparent;
         font-size: 12px;
         padding: 8px;
-        border-radius: 50%;
+        border-radius: 4px;
         color: white;
+        margin-left: 15px;
       }
       .button-success{
         background-color: $green;
       }
       .button-declined{
-        background-color: $red;
+        background-color: rgba(0,0,0,0.3);
       }
 
     }
@@ -106,4 +110,9 @@
   }
 
 
+}
+
+.owner-booking-list-item{
+  margin-top: 20px;
+  font-size: 14px;
 }
