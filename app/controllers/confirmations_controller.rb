@@ -13,7 +13,7 @@ class ConfirmationsController < ApplicationController
     # end
     @booking.save
     skip_authorization
-    redirect_to requests_path
+    redirect_to owner_bookings_path
   end
 
   private

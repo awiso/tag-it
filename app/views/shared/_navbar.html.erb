@@ -12,11 +12,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <div class="<%= active_class(artist_bookings_path) %>">
+      <!-- <div class="<%= active_class(artist_bookings_path) %>">
         <%= link_to "My Blank Canvases", artist_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      </div>
+      </div> -->
       <div class="<%= active_class(owner_bookings_path) %>">
-        <%= link_to "My Owned Walls", owner_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "My Dashboard", owner_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
       <div>
         <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
