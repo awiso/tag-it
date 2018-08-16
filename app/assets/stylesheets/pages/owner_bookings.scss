@@ -1,15 +1,18 @@
 .owner-bookings{
+  width: 100%;
   .wrapper-bookings{
     background: white;
-    padding: 10px;
     border-radius: 4px;
     min-height: 80vh;
   }
 
+  .bookings-list-scroll{
+    height: calc(100vh - 140px);
+    overflow-y: scroll;
+  }
   ul{
     li{
-      display: flex;
-      padding: 10px;
+      margin-top: 20px;
       &:hover{
         background-color: #ECFEFF;
       }
@@ -52,9 +55,13 @@
     margin-left: 20px;
     ul{
       display: flex;
+      align-items: flex-start;
       list-style: none;
       p{
         margin: 0;
+      }
+      form{
+        display: inline-block;
       }
       li{
         border-radius: 8px;
@@ -67,6 +74,34 @@
           background: #C2E8FF;
         }
       }
+    }
+    .confirmation-buttons{
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-around;
+      .button{
+        border: 1px solid transparent;
+        font-size: 12px;
+        padding: 8px;
+        border-radius: 50%;
+        color: white;
+      }
+      .button-success{
+        background-color: $green;
+      }
+      .button-declined{
+        background-color: $red;
+      }
+
+    }
+    .accepted, .declined{
+      font-size: 14px;
+    }
+    .accepted{
+      color: $green;
+    }
+    .declined{
+      color: $red;
     }
   }
 

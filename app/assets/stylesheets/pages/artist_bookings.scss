@@ -1,12 +1,19 @@
+.booking-flex{
+  display: flex;
+}
+
 
 .booking-list{
+  width: 100%;
   a{ color: white}
   .artist-bookings-card{
     display: flex;
     align-items: center;
     .booking_wall_description{
+      width: 200px;
+      font-size: 14px;
       flex-grow: 1;
-      margin-left: 20px;
+      margin-left: 15px;
       color: black;
       display: flex;
       flex-direction: column;
@@ -19,17 +26,50 @@
     .artist_bookings-view-wall{
       margin-right: 20px;
     }
+    .artist-bookings-confirmation{
+      margin: 0px 20px;
+      font-size: 14px;
+      p{
+        margin: 0;
+      }
+      .pending-text{
+        font-style: italic;
+        color: grey;
+      }
+      .accepted-text{
+        color: $green;
+      }
+      .declined-text{
+        color: $red;
+      }
+    }
   }
 
 
   ul{
     list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    width: 100%;
+    .pending{
+      background: #D3CEF2;
+    }
+    .accepted{
+      background: #C5F7C3;
+    }
+    .declined{
+      background: #B5B5B5;
+    }
     li{
+      min-width: 550px;
+      width: calc(50% - 10px);
       border-radius: 8px;
       list-style: none;
-      background: #DCEEFA;
       padding: 10px;
       margin-bottom: 5px;
+      margin-left: 5px;
+      display: inline-block;
       &:hover{
         background: #C2E8FF;
       }

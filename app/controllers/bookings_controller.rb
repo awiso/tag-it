@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @wall = Wall.find(params[:wall_id])
     @booking.wall = @wall
     if @booking.save
-      redirect_to artist_bookings_path
+      redirect_to owner_bookings_path
     else
       render 'walls/show'
     end
@@ -21,4 +21,3 @@ class BookingsController < ApplicationController
   end
 
 end
-
