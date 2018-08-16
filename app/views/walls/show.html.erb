@@ -20,7 +20,7 @@
         <div class="book-box">
 
           <%= simple_form_for [@wall, @booking] do |f|%>
-          <%= f.input :date %>
+          <%= f.input :date, as: :string, input_html: { class: "datepickr"} %>
           <%= f.submit class: 'btn btn-success' %>
           <% end %>
 
