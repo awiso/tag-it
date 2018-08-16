@@ -44,46 +44,46 @@
       <ul class="bookings-list-scroll">
         <% @walls.each do |wall| %>
         <li>
-          <div class="owner-bookings-wall">
-            <%= link_to wall_path(wall) do %>
-            <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 100, width: 200, crop: :fill %>')"></div>
-            <% end %>
-            <p class="owner-wall-name"> <%= wall.name %></p>
-          </div>
           <div class="owner-bookings-bookings">
-            <ul>
-              <% wall.bookings.each do |booking| %>
-              <li>
-                <% if booking[:status] == "pending" %>
-                <p><strong>Booking</strong> for <%= booking.date %></p>
-                <p>from <%= booking.user.email %></p>
-                <p><em><%= booking.initial_message %></em></p>
-                <div class="confirmation-buttons">
-                  <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
-                  <%= f.hidden_field :status, :value => "accepted" %>
-                  <%= f.hidden_field :id, :value => booking.id %>
-                  <%= f.submit "Accept", class: "button button-success"  %>
+            <div class="owner-bookings-wall">
+              <%= link_to wall_path(wall) do %>
+              <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 100, width: 200, crop: :fill %>')"></div>
+              <p class="owner-wall-name"> <%= wall.name %></p>
+              <% end %>
+            </div>
+                <% wall.bookings.each do |booking| %>
+                <div class="owner-booking-list-item">
+                  <% if booking[:status] == "pending" %>
+                  <p><strong>Booking</strong> for <%= booking.date %>
+                  from <%= booking.user.email %></p>
+                  <% if booking.initial_message %>
+                    <p><em>"<%= booking.initial_message %>"</em></p>
                   <% end %>
+                  <div class="confirmation-buttons">
+                    <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
+                    <%= f.hidden_field :status, :value => "accepted" %>
+                    <%= f.hidden_field :id, :value => booking.id %>
+                    <%= f.submit "Accept", class: "button button-success"  %>
+                    <% end %>
 
-                  <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"decline-booking-button"}) do |f| %>
-                  <%= f.hidden_field :status, :value => "declined" %>
-                  <%= f.hidden_field :id, :value => booking.id %>
-                  <%= f.submit "Decline", class: "button button-declined" %>
+                    <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"decline-booking-button"}) do |f| %>
+                    <%= f.hidden_field :status, :value => "declined" %>
+                    <%= f.hidden_field :id, :value => booking.id %>
+                    <%= f.submit "Decline", class: "button button-declined" %>
+                    <% end %>
+                  </div>
+
+                  <% elsif  booking[:status] == "accepted" %>
+                  <p><%= booking.date %></p>
+                  <p class="accepted">Accepted</p>
+                  <% elsif  booking[:status] == "declined" %>
+                  <p><%= booking.date %></p>
+                  <p class="declined">Declined</p>
                   <% end %>
                 </div>
-
-                <% elsif  booking[:status] == "accepted" %>
-                <p><%= booking.date %></p>
-                <p class="accepted">Accepted</p>
-                <% elsif  booking[:status] == "declined" %>
-                <p><%= booking.date %></p>
-                <p class="declined">Declined</p>
                 <% end %>
-              </li>
-              <% end %>
-            </ul>
+            <% end %>
           </div>
-          <% end %>
         </li>
       </ul>
 
