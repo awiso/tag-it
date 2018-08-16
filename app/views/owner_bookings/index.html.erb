@@ -42,7 +42,7 @@
         <li>
           <div class="owner-bookings-wall">
             <%= link_to wall_path(wall) do %>
-            <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
+            <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 100, width: 200, crop: :fill %>')"></div>
             <% end %>
             <p class="owner-wall-name"> <%= wall.name %></p>
           </div>
@@ -53,7 +53,7 @@
                 <% if booking[:status] == "pending" %>
                 <p><strong>Booking</strong> for <%= booking.date %></p>
                 <p>from <%= booking.user.email %></p>
-                <p><em><%= booking.message %></em></p>
+                <p><em><%= booking.initial_message %></em></p>
                 <div class="confirmation-buttons">
                   <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
                   <%= f.hidden_field :status, :value => "accepted" %>
