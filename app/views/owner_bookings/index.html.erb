@@ -1,4 +1,6 @@
 <div class="booking-flex">
+  <% if @bookings.present? %>
+
   <div class="container booking-list" style="width: <%if @walls.present?%> 50%; <% end %>" >
     <h2>My Blank Canvases</h2>
     <ul class="bookings-list-scroll">
@@ -27,7 +29,9 @@
       <% end %>
     </ul>
   </div>
+  <% end %>
 
+  <% if @walls.present? %>
   <div class="container owner-bookings" style="width: <%if @bookings.present?%> 50%; border-left: 1px solid black;<% end %>" >
 
     <h2>My Owned Walls</h2>
@@ -42,7 +46,7 @@
         <li>
           <div class="owner-bookings-wall">
             <%= link_to wall_path(wall) do %>
-            <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
+            <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 100, width: 200, crop: :fill %>')"></div>
             <% end %>
             <p class="owner-wall-name"> <%= wall.name %></p>
           </div>
@@ -53,7 +57,7 @@
                 <% if booking[:status] == "pending" %>
                 <p><strong>Booking</strong> for <%= booking.date %></p>
                 <p>from <%= booking.user.email %></p>
-                <p></p>
+                <p><em><%= booking.initial_message %></em></p>
                 <div class="confirmation-buttons">
                   <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
                   <%= f.hidden_field :status, :value => "accepted" %>
@@ -85,6 +89,7 @@
 
     </div>
   </div>
+  <% end %>
 
 
 </div>
