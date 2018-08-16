@@ -1,5 +1,8 @@
+// body {
+//   background: gray;
+// }
 .card{
-  height: 250px;
+  //height: 250px;
   position: relative;
   border-radius: 5px;
   box-shadow: 1px 1px 1px rgba(1,1,1,0.06);
@@ -11,12 +14,13 @@
   height: 175px;
   background-size: cover !important;
   background-position: center;
-  color: white;
 }
 
 .card-description{
-  height: 80px;
-  padding-left: 10px;
+  // height: 80px;
+  padding: 15px;
+  background-color: white;
+  // overflow: hidden;
 }
 
 .card-text{
