@@ -12,4 +12,6 @@ class User < ApplicationRecord
   # 1 : N
   # I own a wall
   has_many :owned_walls, class_name: "Wall"
+
+  mount_uploader :avatar, PhotoUploader
 end

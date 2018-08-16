@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  devise_for :users do
-  end
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   # requests shows you all pending requests
   get 'requests', to: 'requests#index', as: 'requests'
