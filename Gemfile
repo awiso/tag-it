@@ -11,6 +11,7 @@ gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'geocoder'
+gem 'pg_search'
 
 gem "pundit"
 
