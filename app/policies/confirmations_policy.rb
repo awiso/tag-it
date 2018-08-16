@@ -1,10 +1,6 @@
-class OwnerBookingsPolicy < ApplicationPolicy
+class ConfirmationsPolicy < ApplicationPolicy
 
-  def index?
-    true
-  end
-
-  def show?
+  def update?
     true
   end
 

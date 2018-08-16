@@ -1,0 +1,31 @@
+<h2>Requests for your Wall</h2>
+<% @walls.each do |wall| %>
+<%= cl_image_tag wall.photo, height: 300, crop: :fill, class: 'image' %>
+<%= wall.name %>
+<ul>
+  <% wall.bookings.each do |booking| %>
+  <li>
+    <% if booking[:status] == "pending" %>
+      <%= booking[:date] %>
+
+      <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
+      <%= f.hidden_field :status, :value => "accepted" %>
+      <%= f.hidden_field :id, :value => booking.id %>
+      <%= f.submit "Accept" %>
+      <% end %>
+
+      <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"decline-booking-button"}) do |f| %>
+      <%= f.hidden_field :status, :value => "declined" %>
+      <%= f.hidden_field :id, :value => booking.id %>
+      <%= f.submit "Decline" %>
+      <% end %>
+
+      <% elsif  booking[:status] == "accepted" %>
+      <p class="accepted">Accepted</p>
+      <% elsif  booking[:status] == "declined" %>
+      <p class="declined">Declined</p>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+<% end %>

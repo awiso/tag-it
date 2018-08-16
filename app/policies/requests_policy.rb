@@ -1,4 +1,4 @@
-class OwnerBookingsPolicy < ApplicationPolicy
+class RequestsPolicy < ApplicationPolicy
 
   def index?
     true
