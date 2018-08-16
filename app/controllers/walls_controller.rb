@@ -77,7 +77,7 @@ class WallsController < ApplicationController
       {
         lat: wall.latitude,
         lng: wall.longitude,
-        infoWindow: { content: "here's some info" }
+        infoWindow: { content: render_to_string(partial: "/walls/map_box", locals: { wall: wall }) }
       }
     end
   end

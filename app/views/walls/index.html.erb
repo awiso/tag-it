@@ -1,10 +1,4 @@
 <div class="wrapper">
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-  ></div>
   <div class="container index-container">
 
     <div class="row">
@@ -14,50 +8,63 @@
       </div>
       <div class="search-bar">
         <%= form_tag walls_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a wall"
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "Find a wall"
           %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="cards-container">
-        <div class="row">
-
-          <% @walls.each do |wall| %>
-          <div class="col-xs-12 col-sm-4">
-
-            <%= link_to wall_path(wall) do %>
-            <div class="card">
-
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')"></div>
-
-            <div class="card-description">
-              <h4 class="card-text"> <%= wall.name.truncate(50) %> </h4>
-              <p class="card-text"> <%= wall.address.truncate(30) %> </p>
-            </div>
-
-          </div>
           <% end %>
         </div>
-        <% end %>
-      </div>
-      <div id="map" style="position: relative; overflow: hidden;">
-        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"></div>
-      </div>
-    </div>
-
     <div class="new_wall">
       <%= link_to 'Post a New Wall', new_wall_path, class: 'btn btn-primary' %>
     </div>
   </div>
-</div>
+      </div>
+    </div>
+
+    <div class="flex-wrapper">
 
 
+      <div class="content">
+        <div class="cards-container">
+          <div class="row">
 
+            <% @walls.each do |wall| %>
+            <div class="col-xs-12 col-sm-6">
+
+              <%= link_to wall_path(wall) do %>
+              <div class="card">
+
+                <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')"></div>
+
+                <div class="card-description">
+                  <h4 class="card-text"> <%= wall.name.truncate(50) %> </h4>
+                  <p class="card-text"> <%= wall.address.truncate(30) %> </p>
+                </div>
+
+              </div>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+        <div id="index-map">
+          <div
+          id="map"
+          style="width: 100%;
+          height: 90vh;
+          "
+          data-markers="<%= @markers.to_json %>"
+          ></div>
+        </div>
+
+          </div>
+
+          <div class="container">
+
+
+        </div>
 
 
 
