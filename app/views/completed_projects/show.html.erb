@@ -1,0 +1,48 @@
+<div class="container completed-projects">
+  <h2>Street Art Project</h2>
+  <div class="description">
+    <div><strong>Artwork name:</strong> <%= @completed_project.name %></div>
+    <div><strong>Artwork description:</strong> <%= @completed_project.description %></div>
+    <% if @completed_project.user.name.present? %>
+      <div><strong>Artist name</strong> <%= @completed_project.user.name %></div>
+    <% end %>
+    <div><strong>Artist contact:</strong> <%= @completed_project.user.email %></div>
+    <% if @completed_project.collaborators.present? %>
+    <div><strong>Collaborators:</strong> <%= @completed_project.collaborators %></div>
+    <% end %>
+
+  <div class="completed-before-after">
+    <div class="completed-card">
+      <h4>Before</h4>
+      <div class="before" style="background-image: url('<%= cl_image_path @wall.photo, height: 200, width: 400, crop: :fill %>')"></div>
+    </div>
+    <div  class="completed-card">
+
+      <h4>After</h4>
+      <div class="after" style="background-image: url('<%= cl_image_path @completed_project.photo, height: 200, width: 400, crop: :fill %>')"></div>
+    </div>
+  </div>
+
+  <div class="map">
+    <div style="margin-top: 15px;"><p><strong>Where to find this street art:</strong> <%= @wall.address %></p></div>
+    <div id="show-map">
+      <div
+      id="map"
+      style="position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 600px;
+      position: relative;" data-markers="<%= @markers.to_json %>">
+      <div style="height: 100%;
+      width: 200px;
+      position:
+      absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgb(229, 227, 223);">
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>

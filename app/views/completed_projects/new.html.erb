@@ -1,0 +1,12 @@
+<h2>COMPLETED PROJECT</h2>
+<div class="container">
+  <%= simple_form_for [@wall, @completed_project] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :collaborators %>
+  <%= f.input :photo %>
+  <%= f.hidden_field :user_id, :value => current_user.id  %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, "Complete Project", class: "btn-danger" %>
+  <% end %>
+</div>

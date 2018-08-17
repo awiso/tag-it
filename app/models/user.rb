@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # N : N 
+  # N : N
   # I am renting a wall
   has_many :bookings
   has_many :rented_walls, through: :bookings, source: :wall
@@ -12,6 +12,7 @@ class User < ApplicationRecord
   # 1 : N
   # I own a wall
   has_many :owned_walls, class_name: "Wall"
+  has_many :completed_projects
 
   mount_uploader :avatar, PhotoUploader
 end
