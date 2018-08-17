@@ -1,4 +1,4 @@
-<div id="tag-logo" class="navbar-wagon">
+<div id="tag-logo" class="navbar-wagon <%= navbar_class  %>">
   <!-- Logo -->
   <%= link_to walls_path, class: "navbar-wagon-brand" do %>
 
@@ -41,7 +41,7 @@
             </li>
             <li>
               <%= link_to edit_user_registration_path(@user) do %>
-              <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>
@@ -52,6 +52,7 @@
           </ul>
         </div>
       </div>
+
       <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
