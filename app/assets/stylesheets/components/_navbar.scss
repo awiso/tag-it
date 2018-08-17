@@ -85,3 +85,19 @@
   font-weight: bolder;
   color: #da552f;
 }
+
+.form-navbar{
+  width: 500px;
+}
+
+.pac-container {
+  background-color: #FFF;
+  z-index: 1070;
+  position: fixed;
+  display: inline-block;
+  float: left;
+}
+
+.modal-backdrop {
+  z-index: 20;
+}
