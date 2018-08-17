@@ -1,7 +1,8 @@
 .flex-wrapper{
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
+  margin-left: 20px;
   margin: 0 auto;
   .content {
     flex: 1 0 55%;
@@ -26,4 +27,28 @@
 
 .new_wall{
   margin-top: 20px;
+}
+
+.cards-container{
+  margin-left: 30px;
+}
+
+.search-bar{
+  display: flex;
+  align-items: center;
+}
+.search-bar-field{
+  width: 600px;
+}
+
+.seatch-bar-icon{
+  margin-right: 20px;
+}
+
+.card-holder{
+  padding-top: 50px;
+}
+
+.headings{
+  padding-top: 20px;
 }
