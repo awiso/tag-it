@@ -10,9 +10,13 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-      <div class="new_wall">
-        <%= link_to 'Post a New Wall', new_wall_path, class: 'btn btn-navbar', style: 'background-color: #1f2123;' %>
-      </div>
+
+    <div class="new_wall">
+      <button type="button" class="btn btn-navbar" data-toggle="modal" data-target="#myModal">
+        Post new Wall
+      </button>
+
+    </div>
 
     <!-- Links when logged in -->
       <!-- <div class="<%= active_class(artist_bookings_path) %>">
@@ -66,3 +70,27 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Create new Wall</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <%= simple_form_for @new_wall, html: { class: "form-navbar"} do |f| %>
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :description %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit, class: "btn-green" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
