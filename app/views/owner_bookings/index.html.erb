@@ -3,31 +3,47 @@
 
   <div class="container booking-list" style="width: <%if @walls.present?%> 50%; <% end %>" >
     <h2>My Blank Canvases</h2>
-    <ul class="bookings-list-scroll">
-      <% @bookings.each do |b| %>
-      <li class="<%= b.status %>">
-        <div class="artist-bookings-card">
-          <div class="wall_photo" style="background-image: url('<%= cl_image_path b.wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
-          <div class="booking_wall_description">
-            <p><%= b.wall.name %></p>
-            <p><%= b.wall.address %></p>
+    <div class="bookings-list-scroll">
+      <ul>
+        <% @bookings.each do |b| %>
+        <% date_obj = b.date %>
+        <li class="<%= b.status %>">
+          <div class="artist-bookings-card">
+            <div class="wall_photo" style="background-image: url('<%= cl_image_path b.wall.photo, height: 300, width: 400, crop: :fill %>')"></div>
+            <div class="booking_wall_description">
+              <p><%= b.wall.name %></p>
+              <p><%= b.wall.address %></p>
+              <div class= "artist-bookings-confirmation">
+                <% if b.status =="pending" %>
+                <p class="pending-text">Pending for <%= b.date&.strftime('%a %d %b %Y') %></p>
+                <% elsif b.status == "accepted" %>
+                <p class="accepted-text">Confirmed for <%= b.date&.strftime('%a %d %b %Y') %></p>
+                <%  elsif b.status == "declined" %>
+                <p class="declined-text">Declined for <%= b.date&.strftime('%a %d %b %Y') %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="artist-bookings-buttons">
+              <%= link_to wall_path(b.wall) do %>
+              <div class="artist_bookings-view-wall btn">
+                View Wall
+              </div>
+              <% end %>
+              <% if b.status == "accepted" %>
+                <%= link_to new_wall_completed_project_path(b.wall) do %>
+                <div class="artist_bookings-view-wall btn">
+                  Complete Project
+                </div>
+                <% end %>
+              <% end %>
+
+            </div>
           </div>
-          <div class= "artist-bookings-confirmation">
-            <% if b.status =="pending" %>
-            <p class="pending-text">Pending for <%= b.date %></p>
-            <% elsif b.status == "accepted" %>
-            <p class="accepted-text">Confirmed for <%= b.date %></p>
-            <%  elsif b.status == "declined" %>
-            <p class="declined-text">Declined for <%= b.date %></p>
-            <% end %>
-          </div>
-          <div class="artist_bookings-view-wall btn btn-primary">
-            <%= link_to 'View Wall', wall_path(b.wall)  %>
-          </div>
-        </div>
-      </li>
-      <% end %>
-    </ul>
+        </li>
+        <% end %>
+      </ul>
+
+    </div>
   </div>
   <% end %>
 
@@ -40,25 +56,25 @@
         <p>My Walls</p>
         <p>Artist Bookings</p>
       </div> -->
-
-      <ul class="bookings-list-scroll">
-        <% @walls.each do |wall| %>
-        <li>
-          <div class="owner-bookings-bookings">
-            <div class="owner-bookings-wall">
-              <%= link_to wall_path(wall) do %>
-              <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 100, width: 200, crop: :fill %>')"></div>
-              <p class="owner-wall-name"> <%= wall.name %></p>
-              <% end %>
-            </div>
-                <% wall.bookings.each do |booking| %>
-                <div class="owner-booking-list-item">
-                  <% if booking[:status] == "pending" %>
-                  <p><strong>Booking</strong> for <%= booking.date %>
+      <div class="bookings-list-scroll">
+        <ul>
+          <% @walls.each do |wall| %>
+          <li>
+            <div class="owner-bookings-bookings">
+              <div class="owner-bookings-wall">
+                <%= link_to wall_path(wall) do %>
+                <div class="wall_photo" style="background-image: url('<%= cl_image_path wall.photo, height: 100, width: 200, crop: :fill %>')"></div>
+                <p class="owner-wall-name"> <%= wall.name %></p>
+                <% end %>
+              </div>
+              <% wall.bookings.each do |booking| %>
+              <div class="owner-booking-list-item">
+                <p><strong>Booking</strong> for <%= booking.date.to_formatted_s(:long_ordinal) %>
                   from <%= booking.user.email %></p>
                   <% if booking.initial_message %>
-                    <p><em>"<%= booking.initial_message %>"</em></p>
+                  <p><em>"<%= booking.initial_message %>"</em></p>
                   <% end %>
+                  <% if booking[:status] == "pending" %>
                   <div class="confirmation-buttons">
                     <%= form_for(:booking, :url => update_booking_path, :method => :patch, :html => { class:"confirm-booking-button"}) do |f| %>
                     <%= f.hidden_field :status, :value => "accepted" %>
@@ -74,18 +90,18 @@
                   </div>
 
                   <% elsif  booking[:status] == "accepted" %>
-                  <p><%= booking.date %></p>
                   <p class="accepted">Accepted</p>
                   <% elsif  booking[:status] == "declined" %>
-                  <p><%= booking.date %></p>
                   <p class="declined">Declined</p>
                   <% end %>
                 </div>
                 <% end %>
-            <% end %>
-          </div>
-        </li>
-      </ul>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+
+      </div>
 
     </div>
   </div>

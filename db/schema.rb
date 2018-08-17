@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_135333) do
+ActiveRecord::Schema.define(version: 2018_08_16_163803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 2018_08_16_135333) do
     t.text "initial_message"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["wall_id"], name: "index_bookings_on_wall_id"
+  end
+
+  create_table "completed_projects", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "collaborators"
+    t.string "photo"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "wall_id"
+    t.index ["user_id"], name: "index_completed_projects_on_user_id"
+    t.index ["wall_id"], name: "index_completed_projects_on_wall_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,5 +75,7 @@ ActiveRecord::Schema.define(version: 2018_08_16_135333) do
 
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "walls"
+  add_foreign_key "completed_projects", "users"
+  add_foreign_key "completed_projects", "walls"
   add_foreign_key "walls", "users"
 end
