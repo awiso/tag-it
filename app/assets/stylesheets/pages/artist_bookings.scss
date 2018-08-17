@@ -2,18 +2,16 @@
   display: flex;
 }
 
-
 .booking-list{
   width: 100%;
-  a{ color: white}
   .artist-bookings-card{
     display: flex;
     align-items: center;
     .booking_wall_description{
-      width: 200px;
+      min-width: 180px;
       font-size: 14px;
       flex-grow: 1;
-      margin-left: 15px;
+      margin-left: 10px;
       color: black;
       display: flex;
       flex-direction: column;
@@ -23,12 +21,36 @@
         margin: 0;
       }
     }
+    a{
+      color: rgba(0,0,0,0.3);
+      transition: color 0.5s ease;
+    }
     .artist_bookings-view-wall{
-      margin-right: 20px;
+      margin-left: 10px;
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid rgba(0,0,0,0.3);
+      white-space: nowrap;
+      padding: 6px 12px;
+      font-size: 18px;
+      line-height: 1.428571429;
+      border-radius: 4px;
+      transition: background 0.5s ease;
+
+      &:hover{
+        background: $green;
+
+      }
     }
     .artist-bookings-confirmation{
-      margin: 0px 20px;
-      font-size: 14px;
+        font-size: 14px;
       p{
         margin: 0;
       }
@@ -45,34 +67,32 @@
     }
   }
 
-
   ul{
     list-style: none;
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-flow: row wrap;
     padding: 0;
     width: 100%;
-    .pending{
-      background: #e3edec;
-    }
-    .accepted{
-      background: #C5F7C3;
-    }
-    .declined{
-      background: #B5B5B5;
-    }
+    // .pending{
+    //   background: #dee0e0;
+    // }
+    // .accepted{
+    //   background: #C5F7C3;
+    // }
+    // .declined{
+    //   background: #f99db6;
+    // }
     li{
-      min-width: 550px;
-      width: calc(50% - 10px);
-      border-radius: 8px;
+      width: 100%;
+      border-radius: 4px;
       list-style: none;
       padding: 10px;
       margin-bottom: 5px;
       margin-left: 5px;
       display: inline-block;
-      &:hover{
-        background: #C2E8FF;
-      }
+      border-top: 1px solid rgba(0,0,0,0.3);
     }
 
 

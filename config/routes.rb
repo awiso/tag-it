@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :walls do
     #
     resources :bookings, only: [:index, :show, :create, :edit, :update]
+    resources :completed_projects, only: [:show, :new, :create]
     # bookings show, gives booking/s related to specific walls
     # bookings new, create new booking for specific wall
     #form for new booking of wall is on wall/:id/show
