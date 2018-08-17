@@ -1,76 +1,69 @@
-<div class="wrapper">
-  <div class="container index-container">
-
-    <div class="row">
+<div class="flex-wrapper">
+  <div class="content">
+    <div class="cards-container">
       <div class="headings">
-        <h1>Welcome, Urban Artists!</h1>
-        <h2>Explore tagging opportunities in your neighbourhood</h2>
-      </div>
-      <div class="search-bar">
-        <%= form_tag walls_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-          placeholder: "Find a wall"
-          %>
-          <% end %>
+
+        <h4>Welcome, Urban Artists!</h4>
+        <div class="search-bar">
+          <div class="seatch-bar-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="search-bar-field">
+            <%= form_tag walls_path, method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+              placeholder: "Explore tagging opportunities in your neighbourhood"
+              %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
-    <div class="new_wall">
-      <%= link_to 'Post a New Wall', new_wall_path, class: 'btn btn-primary' %>
-    </div>
-  </div>
-      </div>
-    </div>
+        <div class="row card-holder">
 
-    <div class="flex-wrapper">
+          <% @walls.each do |wall| %>
+          <div class="col-xs-12 col-sm-4">
 
+            <%= link_to wall_path(wall) do %>
+            <div class="card">
 
-      <div class="content">
-        <div class="cards-container">
-          <div class="row">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')"></div>
 
-            <% @walls.each do |wall| %>
-            <div class="col-xs-12 col-sm-6">
-
-              <%= link_to wall_path(wall) do %>
-              <div class="card">
-
-                <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path(wall.photo, height: 300, width: 400, crop: :fill) %>')"></div>
-
-                <div class="card-description">
-                  <div class="card-text">
-                  <h4 class="card-text"> <%= wall.name.truncate(50) %> </h4>
-                  <p class="card-text"> <%= wall.address.truncate(30) %> <i class="fas fa-map-pin"></i></i> </p>
+              <div class="card-description">
+                <div class="card-text">
+                  <p class="card-text">  <%= wall.name.truncate(50) %>  </p>
+                  <p class="card-text"> <b><%= wall.address.truncate(30) %></b> <i class="fas fa-map-pin"></i></i> </p>
                 </div>
                 <div class="card-icon">
                   <i class="fas fa-heartbeat"></i>
                 </div>
 
-                </div>
-
               </div>
-              <% end %>
+
             </div>
             <% end %>
           </div>
+          <% end %>
         </div>
       </div>
-        <div id="index-map">
-          <div
-          id="map"
-          style="width: 100%;
-          height: 90vh;
-          "
-          data-markers="<%= @markers.to_json %>"
-          ></div>
-        </div>
+    </div>
+    <div id="index-map">
+      <div
+      id="map"
+      style="width: 100%;
+      height: 90vh;
+      "
+      data-markers="<%= @markers.to_json %>"
+      ></div>
+    </div>
 
-          </div>
+  </div>
 
-          <div class="container">
+  <div class="container">
 
 
-        </div>
+  </div>
 
 
 
