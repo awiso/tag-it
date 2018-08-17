@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
-
+  before_action :new_wall
   # Uncomment when you *really understand* Pundit!
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -18,9 +18,14 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-  
+
   def after_sign_in_path_for(resource)
     walls_path
+  end
+
+  def new_wall
+    @new_wall = Wall.new
+
   end
 
 
