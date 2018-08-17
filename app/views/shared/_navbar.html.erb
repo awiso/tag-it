@@ -2,7 +2,7 @@
   <!-- Logo -->
   <%= link_to walls_path, class: "navbar-wagon-brand" do %>
 
-    <%= image_tag 'tag-it.png', height: 50 %>
+  <%= image_tag 'tag-it.png', height: 50 %>
 
   <% end %>
 
@@ -10,8 +10,11 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
+      <div class="new_wall">
+        <%= link_to 'Post a New Wall', new_wall_path, class: 'btn btn-navbar' %>
+      </div>
 
-      <!-- Links when logged in -->
+    <!-- Links when logged in -->
       <!-- <div class="<%= active_class(artist_bookings_path) %>">
         <%= link_to "My Blank Canvases", artist_bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div> -->
@@ -29,37 +32,37 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "#{current_user.display_name}") %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "#{current_user.display_name}") %>
               <% end %>
             </li>
             <li>
               <%= link_to edit_user_registration_path(@user) do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
         </div>
       </div>
-    <% else %>
+      <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+    <!-- Dropdown list appearing on mobile only -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Some mobile link</a></li>
+          <li><a href="#">Other one</a></li>
+          <li><a href="#">Other one</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
